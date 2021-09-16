@@ -4,4 +4,10 @@
 
 ## Usage
 
-/SHSH backup
+`/SHSH backup (id)`	backup shsh
+
+`/SHSH list`	show saved devices
+
+`/SHSH enable`	enable auto backup
+
+`/SHSH disable `	disable auto backup

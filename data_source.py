@@ -15,8 +15,9 @@ async def get_payload(operation, payload) -> dict:
     async with aiohttp.ClientSession(headers=headers) as session:
         url = f'https://api.arx8x.net/{operation}'
         try:
-            async with session.post(url, timeout=5, data=payload) as response:
+            async with session.post(url, timeout=10, data=payload) as response:
                 response = await response.text()
                 return response
         except Exception as ex:
             print(f'请求超时！{ex}')
+            return -1
