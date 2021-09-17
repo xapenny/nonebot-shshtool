@@ -247,15 +247,3 @@ async def _scheduled_fetch_alert():
                 print('Tweak has been blocked by Nonebot Plugin Manager (NPM)!')
     with open(str(TXT_PATH) + '/shsh' +'/mark','w', encoding='utf-8') as f:
         f.write(list(payload_dict['builds'].keys())[-1])
-    
-
-def mark():
-    latest_update_time = ''
-    with open(str(TXT_PATH) + '/shshtool' +'/alert_content.xml','r', encoding='utf-8') as f:
-            f_data = f.read().replace('time.struct_time(', '"').replace(')','"')
-            data = eval(str(f_data))
-            latest_update_time = data['entries'][0]['published']
-
-    with open(str(TXT_PATH) + '/shshtool' +'/last_updated.log','w') as u_time:
-        print('[SHSHTOOL]something changed!')
-        u_time.write(latest_update_time)
