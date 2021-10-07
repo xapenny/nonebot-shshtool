@@ -1,6 +1,6 @@
 # nonebot shshtool
 
- nonebot2 plugin to save & auto-save shsh for A12+ devices
+ nonebot2 plugin to save & auto-save shsh for A7+ devices
 
 ## Usage
 
@@ -11,3 +11,4 @@
 `/SHSH enable`	enable auto backup
 
 `/SHSH disable `	disable auto backup
+

@@ -1,3 +1,4 @@
+from services.log import logger
 import aiohttp
 from nonebot import Driver
 import nonebot
@@ -12,12 +13,14 @@ driver: Driver = nonebot.get_driver()
 
 async def get_payload(operation, payload) -> dict:
     return_list = []
-    async with aiohttp.ClientSession(headers=headers) as session:
+    async with aiohttp.ClientSession(headers=headers, connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
         url = f'https://api.arx8x.net/{operation}'
         try:
+            # async with session.post(url, timeout=10, data=payload, proxy='http://127.0.0.1:23333') as response:
             async with session.post(url, timeout=10, data=payload) as response:
+                # logger.info(payload)
                 response = await response.text()
                 return response
         except Exception as ex:
-            print(f'请求超时！{ex}')
+            logger.error(f'请求超时！{ex}')
             return -1
